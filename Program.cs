@@ -69,6 +69,17 @@ class Program
         {
             Console.WriteLine($"{group.Category}: {string.Join(", ", group.Names)}");
         }
+
+        PrintHeader("\nQuestion 8: Categories with more than 3 products");
+
+        var categoriesWithMoreThanThreeProducts = ProductList.All
+            .GroupBy(product => product.Category)
+            .Where(group => group.Count() > 3);
+
+        foreach (var group in categoriesWithMoreThanThreeProducts)
+        {
+            Console.WriteLine($"{group.Key}: {group.Count()}");
+        }
     }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
