@@ -134,6 +134,11 @@ class Program
         var productsById = ProductList.All.ToDictionary(product => product.ProductId);
         var productWithId18 = productsById[18];
         Console.WriteLine($"{productWithId18.ProductName} - {productWithId18.UnitPrice:C}");
+
+        PrintHeader("\nQuestion 16: First product priced above $50");
+
+        var firstAboveFifty = ProductList.All.First(product => product.UnitPrice > 50m);
+        Console.WriteLine(firstAboveFifty.ProductName);
     }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
