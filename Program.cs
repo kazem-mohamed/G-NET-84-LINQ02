@@ -165,6 +165,16 @@ class Program
         {
             Console.WriteLine(name);
         }
+
+        PrintHeader("\nQuestion 21: Products paired with customers");
+
+        var productCustomerPairs = ProductList.All
+            .Zip(CustomerList.All, (product, customer) => $"{product.ProductName} sold to {customer.CompanyName}");
+
+        foreach (var pair in productCustomerPairs)
+        {
+            Console.WriteLine(pair);
+        }
     }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
