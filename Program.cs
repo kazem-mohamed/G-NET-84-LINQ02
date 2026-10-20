@@ -58,6 +58,17 @@ class Program
         {
             Console.WriteLine($"{group.Key}: {group.Count()}");
         }
+
+        PrintHeader("\nQuestion 7: Product names by category");
+
+        var namesByCategory = ProductList.All
+            .GroupBy(product => product.Category)
+            .Select(group => new { Category = group.Key, Names = group.Select(product => product.ProductName) });
+
+        foreach (var group in namesByCategory)
+        {
+            Console.WriteLine($"{group.Category}: {string.Join(", ", group.Names)}");
+        }
     }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
