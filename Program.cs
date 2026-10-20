@@ -97,6 +97,11 @@ class Program
         {
             Console.WriteLine($"{country.Country}: {country.Count} customers, {country.TotalOrderValue:C}");
         }
+
+        PrintHeader("\nQuestion 10: Total units in stock");
+
+        var totalUnitsInStock = ProductList.All.Sum(product => product.UnitsInStock);
+        Console.WriteLine(totalUnitsInStock);
     }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
