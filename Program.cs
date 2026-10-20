@@ -121,6 +121,13 @@ class Program
         int[] setB = [3, 6, 9, 12, 15, 13];
 
         Console.WriteLine(string.Join(", ", setA.Except(setB)));
+
+        PrintHeader("\nQuestion 14: Countries in list1 but not list2");
+
+        string[] list1 = ["Germany", "France", "UK", "Spain"];
+        string[] list2 = ["france", "SPAIN", "Italy"];
+
+        Console.WriteLine(string.Join(", ", list1.Except(list2, StringComparer.OrdinalIgnoreCase)));
     }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
