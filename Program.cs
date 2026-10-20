@@ -102,6 +102,11 @@ class Program
 
         var totalUnitsInStock = ProductList.All.Sum(product => product.UnitsInStock);
         Console.WriteLine(totalUnitsInStock);
+
+        PrintHeader("\nQuestion 11: Cheapest and most expensive prices");
+
+        Console.WriteLine($"Cheapest: {ProductList.All.Min(product => product.UnitPrice):C}");
+        Console.WriteLine($"Most expensive: {ProductList.All.Max(product => product.UnitPrice):C}");
     }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
