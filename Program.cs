@@ -25,7 +25,6 @@ class Program
         {
             Console.WriteLine(product.ProductName);
         }
-    }
 
         PrintHeader("\nQuestion 3: Products below $25 while ordered by price");
 
@@ -37,6 +36,15 @@ class Program
         {
             Console.WriteLine($"{product.ProductName} - {product.UnitPrice:C}");
         }
+
+        PrintHeader("\nQuestion 4: Are all seafood products in stock?");
+
+        var allSeafoodInStock = ProductList.All
+            .Where(product => product.Category == "Seafood")
+            .All(product => product.UnitsInStock > 0);
+
+        Console.WriteLine(allSeafoodInStock);
+    }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
 }
