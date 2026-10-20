@@ -14,6 +14,17 @@ class Program
         {
             Console.WriteLine($"{product.ProductName} - {product.UnitPrice:C}");
         }
+
+        PrintHeader("\nQuestion 2: Page 2 (page size = 5)");
+
+        var secondPage = ProductList.All
+            .Skip(5)
+            .Take(5);
+
+        foreach (var product in secondPage)
+        {
+            Console.WriteLine(product.ProductName);
+        }
     }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
