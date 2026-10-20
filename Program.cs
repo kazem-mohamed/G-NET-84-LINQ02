@@ -27,5 +27,16 @@ class Program
         }
     }
 
+        PrintHeader("\nQuestion 3: Products below $25 while ordered by price");
+
+        var productsBelowTwentyFive = ProductList.All
+            .OrderBy(product => product.UnitPrice)
+            .TakeWhile(product => product.UnitPrice < 25m);
+
+        foreach (var product in productsBelowTwentyFive)
+        {
+            Console.WriteLine($"{product.ProductName} - {product.UnitPrice:C}");
+        }
+
     private static void PrintHeader(string title) => Console.WriteLine(title);
 }
