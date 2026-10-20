@@ -49,6 +49,15 @@ class Program
 
         int[] ids = [3, 9, 13, 18];
         Console.WriteLine(ids.Contains(9));
+
+        PrintHeader("\nQuestion 6: Product count by category");
+
+        var productsByCategory = ProductList.All.GroupBy(product => product.Category);
+
+        foreach (var group in productsByCategory)
+        {
+            Console.WriteLine($"{group.Key}: {group.Count()}");
+        }
     }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
