@@ -44,6 +44,11 @@ class Program
             .All(product => product.UnitsInStock > 0);
 
         Console.WriteLine(allSeafoodInStock);
+
+        PrintHeader("\nQuestion 5: Does the ID list contain 9?");
+
+        int[] ids = [3, 9, 13, 18];
+        Console.WriteLine(ids.Contains(9));
     }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
