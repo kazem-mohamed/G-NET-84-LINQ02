@@ -80,6 +80,23 @@ class Program
         {
             Console.WriteLine($"{group.Key}: {group.Count()}");
         }
+
+        PrintHeader("\nQuestion 9: Customers grouped by country");
+
+        var customerCountries =
+            from customer in CustomerList.All
+            group customer by customer.Country into countryGroup
+            select new
+            {
+                Country = countryGroup.Key,
+                Count = countryGroup.Count(),
+                TotalOrderValue = countryGroup.Sum(customer => customer.OrderValues.Sum())
+            };
+
+        foreach (var country in customerCountries)
+        {
+            Console.WriteLine($"{country.Country}: {country.Count} customers, {country.TotalOrderValue:C}");
+        }
     }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
