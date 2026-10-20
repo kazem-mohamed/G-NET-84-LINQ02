@@ -151,6 +151,10 @@ class Program
         {
             Console.WriteLine(value);
         }
+
+        PrintHeader("\nQuestion 19: Even numbers from 1 to 30");
+
+        Console.WriteLine(string.Join(", ", Enumerable.Range(1, 30).Where(number => number % 2 == 0)));
     }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
