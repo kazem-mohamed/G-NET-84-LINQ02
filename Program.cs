@@ -114,6 +114,13 @@ class Program
         {
             Console.WriteLine(category);
         }
+
+        PrintHeader("\nQuestion 13: IDs in setA but not setB");
+
+        int[] setA = [1, 3, 5, 7, 9, 11, 13];
+        int[] setB = [3, 6, 9, 12, 15, 13];
+
+        Console.WriteLine(string.Join(", ", setA.Except(setB)));
     }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
