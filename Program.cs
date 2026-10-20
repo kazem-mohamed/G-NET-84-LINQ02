@@ -144,6 +144,13 @@ class Program
 
         var firstAboveFiveHundred = ProductList.All.FirstOrDefault(product => product.UnitPrice > 500m);
         Console.WriteLine(firstAboveFiveHundred?.ProductName ?? "No product found");
+
+        PrintHeader("\nQuestion 18: Multiplication table row for 7");
+
+        foreach (var value in Enumerable.Range(1, 10).Select(number => $"7 x {number} = {7 * number}"))
+        {
+            Console.WriteLine(value);
+        }
     }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
