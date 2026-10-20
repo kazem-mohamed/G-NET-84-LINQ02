@@ -139,6 +139,11 @@ class Program
 
         var firstAboveFifty = ProductList.All.First(product => product.UnitPrice > 50m);
         Console.WriteLine(firstAboveFifty.ProductName);
+
+        PrintHeader("\nQuestion 17: First product priced above $500");
+
+        var firstAboveFiveHundred = ProductList.All.FirstOrDefault(product => product.UnitPrice > 500m);
+        Console.WriteLine(firstAboveFiveHundred?.ProductName ?? "No product found");
     }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
