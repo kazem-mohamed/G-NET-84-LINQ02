@@ -128,6 +128,12 @@ class Program
         string[] list2 = ["france", "SPAIN", "Italy"];
 
         Console.WriteLine(string.Join(", ", list1.Except(list2, StringComparer.OrdinalIgnoreCase)));
+
+        PrintHeader("\nQuestion 15: Product with ID = 18");
+
+        var productsById = ProductList.All.ToDictionary(product => product.ProductId);
+        var productWithId18 = productsById[18];
+        Console.WriteLine($"{productWithId18.ProductName} - {productWithId18.UnitPrice:C}");
     }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
