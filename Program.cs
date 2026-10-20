@@ -155,6 +155,16 @@ class Program
         PrintHeader("\nQuestion 19: Even numbers from 1 to 30");
 
         Console.WriteLine(string.Join(", ", Enumerable.Range(1, 30).Where(number => number % 2 == 0)));
+
+        PrintHeader("\nQuestion 20: First 3 product and customer names");
+
+        var firstNames = ProductList.All.Take(3).Select(product => product.ProductName)
+            .Concat(CustomerList.All.Take(3).Select(customer => customer.CompanyName));
+
+        foreach (var name in firstNames)
+        {
+            Console.WriteLine(name);
+        }
     }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
