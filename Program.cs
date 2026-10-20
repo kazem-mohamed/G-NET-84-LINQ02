@@ -107,6 +107,13 @@ class Program
 
         Console.WriteLine($"Cheapest: {ProductList.All.Min(product => product.UnitPrice):C}");
         Console.WriteLine($"Most expensive: {ProductList.All.Max(product => product.UnitPrice):C}");
+
+        PrintHeader("\nQuestion 12: Distinct product categories");
+
+        foreach (var category in ProductList.All.Select(product => product.Category).Distinct())
+        {
+            Console.WriteLine(category);
+        }
     }
 
     private static void PrintHeader(string title) => Console.WriteLine(title);
